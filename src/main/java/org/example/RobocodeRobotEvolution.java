@@ -15,6 +15,11 @@ import java.util.stream.Stream;
 
 public class RobocodeRobotEvolution extends PushGP {
 
+    private static final int NUMBER_OF_BATTLES_PER_TEST = 3;
+    private static final int MAX_SCORE = 180;
+    private static final int MAX_POSSIBLE_DIFFERENCE = MAX_SCORE * 2;
+    private static final int PENALTY_FOR_NOT_MOVING = 10;
+
     private final AtomicInteger steps = new AtomicInteger(0);
     private final BattleRunner battleRunner;
 
@@ -25,7 +30,7 @@ public class RobocodeRobotEvolution extends PushGP {
     @Override
     protected void InitFromParameters() throws Exception {
         super.InitFromParameters();
-        _testCases = IntStream.range(0, 3)
+        _testCases = IntStream.range(0, NUMBER_OF_BATTLES_PER_TEST)
                 .mapToObj(i -> new GATestCase(i, 0))
                 .toList();
     }
@@ -37,7 +42,6 @@ public class RobocodeRobotEvolution extends PushGP {
                 .forEach(it -> interpreter.AddInstruction(it.getName(), it));
     }
 
-    // TODO: compete against robots from the same generation
     @Override
     public float EvaluateTestCase(final GAIndividual individual, final Object input, final Object output) {
         steps.set(0);
@@ -46,18 +50,19 @@ public class RobocodeRobotEvolution extends PushGP {
         final String programString = program.toString();
         System.setProperty("RobotProgram.push", programString);
         final Results results = battleRunner.runBattle();
-        final int diff = 360 - (results.myResults().getScore() - results.enemyResults().getScore() + 180);
-        if (diff == 360) {
+
+        final int diff = MAX_POSSIBLE_DIFFERENCE - (results.myResults().getScore() - results.enemyResults().getScore() + MAX_SCORE);
+        if (diff == MAX_POSSIBLE_DIFFERENCE) {
             _interpreter.clearStacks();
             _interpreter.Execute(program, _executionLimit);
-            return diff + (steps.get() == 0 ? 10 : 0);
+            return diff + (steps.get() == 0 ? PENALTY_FOR_NOT_MOVING : 0);
         } else {
             return diff;
         }
     }
 
     /**
-     * Let's optimize the worst battle. Assuming the errors are all non-negative.
+     * Let us optimize the worst battle. The method assumes that the list of the errors is not empty and the errors are all non-negative.
      */
     @Override
     protected float AbsoluteAverageOfErrors(final ArrayList<Float> errors) {
