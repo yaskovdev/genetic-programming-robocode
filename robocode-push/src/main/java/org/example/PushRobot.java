@@ -5,6 +5,9 @@ import org.spiderland.Psh.Program;
 import robocode.Robot;
 import robocode.ScannedRobotEvent;
 
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class PushRobot extends Robot {
@@ -22,7 +25,8 @@ public class PushRobot extends Robot {
         final RobotUnaryIntInstruction turnGunRight = new RobotUnaryIntInstruction("robot.turngunright", this::turnGunRight);
         this.interpreter = new RobotInterpreter(List.of(ahead, back, turnGunLeft, turnGunRight));
         this.interpreter.SetRandomParameters(-10, 10, 1, -10, 10, 0.01f, 40, 100);
-        this.program = new Program(interpreter, PROGRAM);
+        final String program = Files.readString(Paths.get("/Users/yaskovdev/dev/robot.push"), StandardCharsets.UTF_8);
+        this.program = new Program(interpreter, program);
     }
 
     @Override

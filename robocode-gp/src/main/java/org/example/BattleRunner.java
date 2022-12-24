@@ -1,16 +1,21 @@
 package org.example;
 
+
 import robocode.control.BattleSpecification;
 import robocode.control.BattlefieldSpecification;
 import robocode.control.RobocodeEngine;
 import robocode.control.RobotSpecification;
 
+import java.io.File;
+
 public class BattleRunner {
     public static void main(String[] args) {
+        System.setProperty("NOSECURITY", "true");
         System.setProperty("robocode.options.battle.desiredTPS", "10000");
+//        System.setProperty("robocode.options.battle.desiredTPS", "27");
         RobocodeEngine.setLogMessagesEnabled(false);
 
-        RobocodeEngine engine = new RobocodeEngine(new java.io.File("/Users/yaskovdev/robocode"));
+        RobocodeEngine engine = new RobocodeEngine(new File("/Users/yaskovdev/robocode"));
         engine.addBattleListener(new BattleObserver());
         engine.setVisible(false);
         int numberOfRounds = 1;
