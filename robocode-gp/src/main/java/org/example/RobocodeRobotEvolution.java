@@ -45,13 +45,9 @@ public class RobocodeRobotEvolution extends PushGP {
         final String programString = program.toString();
         System.setProperty("robot.push", programString);
         final Results results = battleRunner.runBattle();
-        final int diff = results.myResults().getScore() - results.enemyResults().getScore();
-        if (diff >= 0) {
-            return 0;
-        } else {
-            _interpreter.clearStacks();
-            _interpreter.Execute(program, _executionLimit);
-            return Math.max(0, 1000 - steps.get()) + Math.abs(diff);
-        }
+        _interpreter.clearStacks();
+        _interpreter.Execute(program, _executionLimit);
+        final int diff = 360 - (results.myResults().getScore() - results.enemyResults().getScore() + 180);
+        return diff + (steps.get() == 0 ? 10 : 0);
     }
 }
