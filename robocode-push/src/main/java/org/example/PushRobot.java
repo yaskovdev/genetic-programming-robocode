@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PushRobot extends Robot {
 
-    private static final String PROGRAM = "(0 4 code.quote (100 robot.ahead 360 robot.turngunright 100 robot.back -360 robot.turngunleft) code.do*range)";
+    private static final String PROGRAM = "(exec.y (100 robot.ahead 360 robot.turngunright 100 robot.back 360 robot.turngunleft))";
 
     private final Interpreter interpreter;
 
