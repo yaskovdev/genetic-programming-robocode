@@ -1,7 +1,5 @@
 # Using Genetic Programming To Evolve A Robocode Robot
 
-## Demo
-
 After [63 generations](https://yadi.sk/d/RG4SLNpVC7au-w), the blue robot evolved to almost always win against the most annoying enemy (Tracker).
 
 ![Demo](demo.gif)
