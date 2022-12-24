@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="903086ad-80be-441e-95b0-f7315cac9674" name="Changes" comment="Add the Push code to README.md." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2JNJqbwC20BEI9qvmIHDjddDVGS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="903086ad-80be-441e-95b0-f7315cac9674" name="Changes" comment="" />
+      <created>1671912800088</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671912800088</updated>
+      <workItem from="1671912801526" duration="1568000" />
+    </task>
+    <task id="LOCAL-00001" summary="First working version.">
+      <created>1671913057045</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913057045</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Implement the finite loop in Push.">
+      <created>1671913135394</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913135394</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Run battles programmatically.">
+      <created>1671913186613</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913186613</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Make possible to run the PushRobot that is reading the push program from a file.">
+      <created>1671913260689</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913260689</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Cleanup.">
+      <created>1671913314882</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913314882</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Cleanup.">
+      <created>1671913345701</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913345701</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Set up evolution.">
+      <created>1671913392111</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913392111</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Something starts at least.">
+      <created>1671913440612</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913440612</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Something starts at least.">
+      <created>1671913471546</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913471546</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fix the issue when robots was never stopping.">
+      <created>1671913535489</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913535489</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Try to encourage using robot.* commands.">
+      <created>1671913584601</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913584601</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Try to encourage movement.">
+      <created>1671913647783</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913647783</updated>
+    </task>
+    <task id="LOCAL-00013" summary="- Fix fire.&#10;- Penalize robots that are not doing anything.">
+      <created>1671913725838</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913725838</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add more instructions.">
+      <created>1671913780117</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913780117</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Managed to get the first robot that almost always wins against the Tracker. The changes made:&#10;&#10;- Run 3 battles per test case to eliminate influence of good luck.&#10;- Optimize the worst battle of the 3. Do not know why, it just feels right.&#10;- At the beginning, penalize robots that do not move ahead or back or do not turn themselves left or right.&#10;- Delete unnecessary instructions.">
+      <created>1671913819109</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913819109</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Add an animation with the demo.">
+      <created>1671913857385</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913857385</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Add a link to the logs.">
+      <created>1671913903654</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913903654</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Add the Push code to README.md.">
+      <created>1671913953333</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1671913953333</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First working version." />
+    <MESSAGE value="Implement the finite loop in Push." />
+    <MESSAGE value="Run battles programmatically." />
+    <MESSAGE value="Make possible to run the PushRobot that is reading the push program from a file." />
+    <MESSAGE value="Cleanup." />
+    <MESSAGE value="Set up evolution." />
+    <MESSAGE value="Something starts at least." />
+    <MESSAGE value="Fix the issue when robot was never stopping." />
+    <MESSAGE value="Try to encourage using robot.* commands." />
+    <MESSAGE value="Try to encourage movement." />
+    <MESSAGE value="- Fix fire.&#10;- Penalize robots that are not doing anything." />
+    <MESSAGE value="Add more instructions." />
+    <MESSAGE value="Managed to get the first robot that almost always wins against the Tracker. The changes made:&#10;&#10;- Run 3 battles per test case to eliminate influence of good luck.&#10;- Optimize the worst battle of the 3. Do not know why, it just feels right.&#10;- At the beginning, penalize robots that do not move ahead or back or do not turn themselves left or right.&#10;- Delete unnecessary instructions." />
+    <MESSAGE value="Add an animation with the demo." />
+    <MESSAGE value="Add a link to the logs." />
+    <MESSAGE value="Add the Push code to README.md." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add the Push code to README.md." />
+  </component>
+</project>
