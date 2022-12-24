@@ -11,6 +11,7 @@ import java.util.List;
 
 public class RobocodeRobotEvolution extends PushGP {
 
+    public static final String PATTERN = "robot";
     private final BattleRunner battleRunner;
 
     public RobocodeRobotEvolution() {
@@ -18,21 +19,36 @@ public class RobocodeRobotEvolution extends PushGP {
     }
 
     @Override
-    protected void InitInterpreter(final Interpreter interpreter) {
-        // TODO: add number generators somehow?
-        List.of("robot.ahead", "robot.back", "robot.turngunleft", "robot.turngunright")
-                .forEach(it -> interpreter.AddInstruction(it, new DummyUnaryInstruction()));
+    protected void InitFromParameters() throws Exception {
+        super.InitFromParameters();
         // TODO: what should be the test cases?
         _testCases = List.of(new GATestCase(0, 0));
     }
 
     @Override
+    protected void InitInterpreter(final Interpreter interpreter) {
+        // TODO: add number generators somehow?
+        List.of("robot.ahead", "robot.back", "robot.turngunleft", "robot.turngunright")
+                .forEach(it -> interpreter.AddInstruction(it, new DummyUnaryInstruction()));
+    }
+
+    // TODO: compete against robots from the same generation
+    // TODO: implement more robot instructions
+    @Override
     public float EvaluateTestCase(final GAIndividual individual, final Object input, final Object output) {
         final PushGPIndividual robot = (PushGPIndividual) individual;
         final Program program = robot._program;
-        System.setProperty("robot.push", program.toString());
+        final String programString = program.toString();
+        System.setProperty("robot.push", programString);
         final Results results = battleRunner.runBattle();
         final int diff = results.myResults().getScore() - results.enemyResults().getScore();
-        return diff >= 0 ? 0 : -diff;
+        if (diff >= 0) {
+            return 0;
+        } else if (diff <= -180) {
+            final String result = programString.replace(PATTERN, "");
+            return Math.max(Math.abs(diff + (programString.length() - result.length()) / PATTERN.length()), 100);
+        } else {
+            return -diff;
+        }
     }
 }

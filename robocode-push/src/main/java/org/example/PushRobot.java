@@ -22,7 +22,7 @@ public class PushRobot extends Robot {
         final RobotUnaryIntInstruction turnGunLeft = new RobotUnaryIntInstruction("robot.turngunleft", this::turnGunLeft);
         final RobotUnaryIntInstruction turnGunRight = new RobotUnaryIntInstruction("robot.turngunright", this::turnGunRight);
         this.interpreter = new RobotInterpreter(this::ahead);
-        this.interpreter.SetRandomParameters(-10, 10, 1, -10, 10, 0.01f, 40, 100);
+        this.interpreter.SetRandomParameters(-500, 500, 1, -500, 500, 1, 40, 100);
         List.of(ahead, back, turnGunLeft, turnGunRight)
                 .forEach(it -> interpreter.AddInstruction(it.getName(), it));
         this.program = new Program(interpreter, System.getProperty("robot.push"));
