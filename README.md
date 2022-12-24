@@ -4,6 +4,10 @@ After [63 generations](https://yadi.sk/d/RG4SLNpVC7au-w), the blue robot evolved
 
 ![Demo](demo.gif)
 
+The below graph shows how the fitness was changing with every generation. Something important happened around 40th generation.
+
+![Fitness](fitness.png)
+
 ## The Evolved Program
 
 The [Push](http://pushlanguage.org/) program that the blue robot is using is quite concise:
