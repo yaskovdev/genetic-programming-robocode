@@ -1,3 +1,13 @@
+# Using Genetic Programming To Evolve A Robocode Robot
+
+### Demo
+
+After 63 generations, the blue robot evolved to almost always win against the most annoying enemy (Tracker).
+
+![Demo](demo.gif)
+
+### How To Run Locally
+
 ```
 -Xmx512M -Djava.security.manager=allow -XX:+IgnoreUnrecognizedVMOptions "--add-opens=java.base/sun.net.www.protocol.jar=ALL-UNNAMED" "--add-opens=java.base/java.lang.reflect=ALL-UNNAMED" "--add-opens=java.desktop/javax.swing.text=ALL-UNNAMED" "--add-opens=java.desktop/sun.awt=ALL-UNNAMED"
 ```
