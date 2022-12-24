@@ -12,8 +12,6 @@ import java.util.List;
 
 public class PushRobot extends Robot {
 
-    private static final String PROGRAM = "(exec.y (100 robot.ahead 360 robot.turngunright 100 robot.back 360 robot.turngunleft))";
-
     private final Interpreter interpreter;
 
     private final Program program;
@@ -23,8 +21,10 @@ public class PushRobot extends Robot {
         final RobotUnaryIntInstruction back = new RobotUnaryIntInstruction("robot.back", this::back);
         final RobotUnaryIntInstruction turnGunLeft = new RobotUnaryIntInstruction("robot.turngunleft", this::turnGunLeft);
         final RobotUnaryIntInstruction turnGunRight = new RobotUnaryIntInstruction("robot.turngunright", this::turnGunRight);
-        this.interpreter = new RobotInterpreter(List.of(ahead, back, turnGunLeft, turnGunRight));
+        this.interpreter = new Interpreter();
         this.interpreter.SetRandomParameters(-10, 10, 1, -10, 10, 0.01f, 40, 100);
+        List.of(ahead, back, turnGunLeft, turnGunRight).
+                forEach(it -> interpreter.AddInstruction(it.getName(), it));
         final String program = Files.readString(Paths.get("/Users/yaskovdev/dev/robot.push"), StandardCharsets.UTF_8);
         this.program = new Program(interpreter, program);
     }

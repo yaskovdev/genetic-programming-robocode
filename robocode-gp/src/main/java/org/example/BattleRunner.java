@@ -15,7 +15,7 @@ public class BattleRunner {
 
         final RobocodeEngine engine = new RobocodeEngine(new File("/Users/yaskovdev/robocode"));
         engine.addBattleListener(new BattleObserver());
-        engine.setVisible(false);
+        engine.setVisible(true);
         final int numberOfRounds = 1;
 
         for (int i = 0; i < 70; i++) {
