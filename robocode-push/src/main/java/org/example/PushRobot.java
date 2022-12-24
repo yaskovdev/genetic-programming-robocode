@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PushRobot extends Robot {
 
-    private static final String PROGRAM = "(100 robot.ahead 360 robot.turngunright 100 robot.back -360 robot.turngunleft)";
+    private static final String PROGRAM = "(0 4 code.quote (100 robot.ahead 360 robot.turngunright 100 robot.back -360 robot.turngunleft) code.do*range)";
 
     private final Interpreter interpreter;
 
@@ -27,10 +27,7 @@ public class PushRobot extends Robot {
 
     @Override
     public void run() {
-        while (true) {
-            interpreter.clearStacks();
-            interpreter.Execute(program, 1000);
-        }
+        interpreter.Execute(program);
     }
 
     @Override
