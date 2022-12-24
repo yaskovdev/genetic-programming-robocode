@@ -8,10 +8,12 @@ import org.spiderland.Psh.PushGP;
 import org.spiderland.Psh.PushGPIndividual;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Stream;
 
 public class RobocodeRobotEvolution extends PushGP {
 
-    public static final String PATTERN = "robot";
+    private final AtomicInteger steps = new AtomicInteger(0);
     private final BattleRunner battleRunner;
 
     public RobocodeRobotEvolution() {
@@ -27,15 +29,17 @@ public class RobocodeRobotEvolution extends PushGP {
 
     @Override
     protected void InitInterpreter(final Interpreter interpreter) {
-        // TODO: add number generators somehow?
-        List.of("robot.ahead", "robot.back", "robot.turngunleft", "robot.turngunright")
-                .forEach(it -> interpreter.AddInstruction(it, new DummyUnaryInstruction()));
+//        // TODO: add number generators somehow? Seems like they are there, just very rare
+        Stream.of("robot.ahead", "robot.back", "robot.turngunleft", "robot.turngunright")
+                .map(it -> new DummyUnaryInstruction(it, steps))
+                .forEach(it -> interpreter.AddInstruction(it.getName(), it));
     }
 
     // TODO: compete against robots from the same generation
     // TODO: implement more robot instructions
     @Override
     public float EvaluateTestCase(final GAIndividual individual, final Object input, final Object output) {
+        steps.set(0);
         final PushGPIndividual robot = (PushGPIndividual) individual;
         final Program program = robot._program;
         final String programString = program.toString();
@@ -44,11 +48,10 @@ public class RobocodeRobotEvolution extends PushGP {
         final int diff = results.myResults().getScore() - results.enemyResults().getScore();
         if (diff >= 0) {
             return 0;
-        } else if (diff <= -180) {
-            final String result = programString.replace(PATTERN, "");
-            return Math.max(Math.abs(diff + (programString.length() - result.length()) / PATTERN.length()), 100);
         } else {
-            return -diff;
+            _interpreter.clearStacks();
+            _interpreter.Execute(program, _executionLimit);
+            return Math.max(0, 1000 - steps.get()) + Math.abs(diff);
         }
     }
 }

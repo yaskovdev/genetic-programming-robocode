@@ -25,7 +25,7 @@ public class PushRobot extends Robot {
         this.interpreter.SetRandomParameters(-500, 500, 1, -500, 500, 1, 40, 100);
         List.of(ahead, back, turnGunLeft, turnGunRight)
                 .forEach(it -> interpreter.AddInstruction(it.getName(), it));
-        this.program = new Program(interpreter, System.getProperty("robot.push"));
+        this.program = new Program(interpreter, "((integer.rot) ((integer.ln) ((78 (code.do*count)) ((integer.fromfloat code.fromfloat code.fromboolean) (integer.fromfloat exec.dup code.fromboolean) integer.-) (integer.rot integer.fromfloat) ((integer.rand integer.dup) robot.ahead))) (((integer.fromfloat ((((((integer.fromfloat (((exec.pop (integer.shove) (((code.stackdepth))) (exec.yankdup) ((integer.*)))) ((((integer.rot) integer.max) robot.ahead integer.dup) robot.turngunleft exec.k (integer.fromfloat code.do*count integer.fromfloat)))) robot.ahead (integer.fromfloat code.do*count code.fromboolean)) integer.fromboolean) exec.yankdup)) (((integer.fromfloat integer.dup) (integer.fromfloat code.do*count code.fromboolean) integer.dup) code.do*count exec.k integer.rot))) robot.ahead integer.dup) code.dup exec.rand integer.max))");
     }
 
     @Override
