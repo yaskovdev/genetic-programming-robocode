@@ -2,7 +2,7 @@ interpreter-class = org.spiderland.Psh.Interpreter
 inputpusher-class = org.spiderland.Psh.InputPusher
 individual-class = org.spiderland.Psh.PushGPIndividual
 
-population-size = 700
+population-size = 100
 max-generations = 10000
 execution-limit = 200
 

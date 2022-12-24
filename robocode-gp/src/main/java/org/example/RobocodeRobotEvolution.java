@@ -7,10 +7,6 @@ import org.spiderland.Psh.Program;
 import org.spiderland.Psh.PushGP;
 import org.spiderland.Psh.PushGPIndividual;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 
 public class RobocodeRobotEvolution extends PushGP {
@@ -34,11 +30,7 @@ public class RobocodeRobotEvolution extends PushGP {
     public float EvaluateTestCase(final GAIndividual individual, final Object input, final Object output) {
         final PushGPIndividual robot = (PushGPIndividual) individual;
         final Program program = robot._program;
-        try {
-            Files.writeString(Paths.get("/Users/yaskovdev/dev/robot.push"), program.toString(), StandardCharsets.UTF_8);
-        } catch (final IOException e) {
-            throw new RuntimeException("Could not save robot program", e);
-        }
+        System.setProperty("robot.push", program.toString());
         final Results results = battleRunner.runBattle();
         final int diff = results.myResults().getScore() - results.enemyResults().getScore();
         return diff >= 0 ? 0 : -diff;
