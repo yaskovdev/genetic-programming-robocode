@@ -1,20 +1,29 @@
 package org.example;
 
+import robocode.BattleResults;
 import robocode.control.events.BattleAdaptor;
 import robocode.control.events.BattleCompletedEvent;
 import robocode.control.events.BattleErrorEvent;
 import robocode.control.events.BattleMessageEvent;
 
-public class BattleObserver extends BattleAdaptor {
-    // Called when the battle is completed successfully with battle results
-    public void onBattleCompleted(BattleCompletedEvent e) {
-        System.out.println("-- Battle has completed --");
+import java.util.function.BiConsumer;
 
-        // Print out the sorted results with the robot names
-        System.out.println("Battle results:");
-        for (robocode.BattleResults result : e.getSortedResults()) {
-            System.out.println("  " + result.getTeamLeaderName() + ": " + result.getScore());
+public class BattleObserver extends BattleAdaptor {
+
+    private final BiConsumer<BattleResults, BattleResults> scoresCallback;
+
+    public BattleObserver(BiConsumer<BattleResults, BattleResults> scoresCallback) {
+        this.scoresCallback = scoresCallback;
+    }
+
+    // Called when the battle is completed successfully with battle results
+    public void onBattleCompleted(final BattleCompletedEvent e) {
+        System.out.println("-- Battle has completed --");
+        final BattleResults[] results = e.getSortedResults();
+        if (results.length != 2) {
+            throw new RuntimeException("Unexpected results length " + results.length);
         }
+        scoresCallback.accept(results[0], results[1]);
     }
 
     // Called when the game sends out an information message during the battle
