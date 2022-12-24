@@ -43,7 +43,7 @@ public class RobocodeRobotEvolution extends PushGP {
         final PushGPIndividual robot = (PushGPIndividual) individual;
         final Program program = robot._program;
         final String programString = program.toString();
-        System.setProperty("robot.push", programString);
+        System.setProperty("RobotProgram.push", programString);
         final Results results = battleRunner.runBattle();
         _interpreter.clearStacks();
         _interpreter.Execute(program, _executionLimit);

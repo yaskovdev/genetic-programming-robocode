@@ -6,10 +6,13 @@ import java.util.function.Consumer;
 
 public class RobotInterpreter extends Interpreter {
 
-    private final Consumer<Integer> ahead;
+    private final Consumer<Integer> dummyCommand;
 
-    public RobotInterpreter(Consumer<Integer> ahead) {
-        this.ahead = ahead;
+    /**
+     * @param dummyCommand a command to send to the robot every 1000 steps to check if the round is over.
+     */
+    public RobotInterpreter(Consumer<Integer> dummyCommand) {
+        this.dummyCommand = dummyCommand;
     }
 
     @Override
@@ -20,7 +23,7 @@ public class RobotInterpreter extends Interpreter {
             maxSteps--;
             executed++;
             if (executed % 1000 == 0) {
-                ahead.accept(0);
+                dummyCommand.accept(0);
             }
         }
 
