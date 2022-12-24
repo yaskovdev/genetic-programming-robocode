@@ -21,7 +21,9 @@ public class DummyUnaryInstruction extends Instruction {
         final IntStack intStack = interpreter.intStack();
         if (intStack.size() > 0) {
             final int stepsCount = intStack.pop();
-            steps.addAndGet(Math.abs(stepsCount));
+            if ("robot.ahead".equals(name) || "robot.back".equals(name) || "robot.turnleft".equals(name) || "robot.turnright".equals(name)) {
+                steps.addAndGet(Math.abs(stepsCount));
+            }
         }
     }
 

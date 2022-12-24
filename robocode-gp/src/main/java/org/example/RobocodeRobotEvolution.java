@@ -7,8 +7,10 @@ import org.spiderland.Psh.Program;
 import org.spiderland.Psh.PushGP;
 import org.spiderland.Psh.PushGPIndividual;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class RobocodeRobotEvolution extends PushGP {
@@ -23,20 +25,19 @@ public class RobocodeRobotEvolution extends PushGP {
     @Override
     protected void InitFromParameters() throws Exception {
         super.InitFromParameters();
-        // TODO: what should be the test cases?
-        _testCases = List.of(new GATestCase(0, 0));
+        _testCases = IntStream.range(0, 3)
+                .mapToObj(i -> new GATestCase(i, 0))
+                .toList();
     }
 
     @Override
     protected void InitInterpreter(final Interpreter interpreter) {
-//        // TODO: add number generators somehow? Seems like they are there, just very rare
-        Stream.of("robot.ahead", "robot.back", "robot.turngunleft", "robot.turngunright")
+        Stream.of("robot.ahead", "robot.back", "robot.turnleft", "robot.turnright", "robot.turngunleft", "robot.turngunright", "robot.turnradarleft", "robot.turnradarright", "robot.fire")
                 .map(it -> new DummyUnaryInstruction(it, steps))
                 .forEach(it -> interpreter.AddInstruction(it.getName(), it));
     }
 
     // TODO: compete against robots from the same generation
-    // TODO: implement more robot instructions
     @Override
     public float EvaluateTestCase(final GAIndividual individual, final Object input, final Object output) {
         steps.set(0);
@@ -45,9 +46,21 @@ public class RobocodeRobotEvolution extends PushGP {
         final String programString = program.toString();
         System.setProperty("RobotProgram.push", programString);
         final Results results = battleRunner.runBattle();
-        _interpreter.clearStacks();
-        _interpreter.Execute(program, _executionLimit);
         final int diff = 360 - (results.myResults().getScore() - results.enemyResults().getScore() + 180);
-        return diff + (steps.get() == 0 ? 10 : 0);
+        if (diff == 360) {
+            _interpreter.clearStacks();
+            _interpreter.Execute(program, _executionLimit);
+            return diff + (steps.get() == 0 ? 10 : 0);
+        } else {
+            return diff;
+        }
+    }
+
+    /**
+     * Let's optimize the worst battle. Assuming the errors are all non-negative.
+     */
+    @Override
+    protected float AbsoluteAverageOfErrors(final ArrayList<Float> errors) {
+        return Collections.max(errors);
     }
 }
