@@ -4,9 +4,12 @@ import org.spiderland.Psh.Instruction;
 import org.spiderland.Psh.IntStack;
 import org.spiderland.Psh.Interpreter;
 
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class DummyUnaryInstruction extends Instruction {
+
+    private static final Set<String> MOVES = Set.of("robot.ahead", "robot.back", "robot.turnleft", "robot.turnright");
 
     private final String name;
     private final AtomicInteger steps;
@@ -21,7 +24,7 @@ public class DummyUnaryInstruction extends Instruction {
         final IntStack intStack = interpreter.intStack();
         if (intStack.size() > 0) {
             final int stepsCount = intStack.pop();
-            if ("robot.ahead".equals(name) || "robot.back".equals(name) || "robot.turnleft".equals(name) || "robot.turnright".equals(name)) {
+            if (MOVES.contains(name)) {
                 steps.addAndGet(Math.abs(stepsCount));
             }
         }

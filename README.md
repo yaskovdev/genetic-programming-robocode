@@ -24,5 +24,5 @@ The [Push](http://pushlanguage.org/) program that the blue robot is using is qui
 
 Also, since you set `NOSECURITY` to `true`, do not forget to add the next paths to the classpath (see [this issue](https://github.com/robo-code/robocode/commit/cb4e948b7722a897324cdca153576e9f9697898f#diff-2b9254a38f11c2272a48fc059aadb7a0417e84673c531b51686fdf5779c780a8)):
 
-1. `/Users/yaskovdev/robocode/robots/robocode-push-1.0-SNAPSHOT-jar-with-dependencies.jar`
-2. `/Users/yaskovdev/robocode/robots`
+1. `/Users/yaskovdev/robocode/robots`
+2. `/Users/yaskovdev/robocode/robots/robocode-push-1.0-SNAPSHOT-jar-with-dependencies.jar`

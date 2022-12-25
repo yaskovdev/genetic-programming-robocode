@@ -9,7 +9,7 @@ import java.net.URL;
 import static org.spiderland.Psh.GA.GAWithParameters;
 import static org.spiderland.Psh.Params.ReadFromFile;
 
-public class EvolutionRunner {
+public class Main {
 
     public static void main(final String[] args) throws Exception {
         final GA ga = GAWithParameters(ReadFromFile(getFileFromResource("RobocodeRobotEvolution.pushgp")));
@@ -17,7 +17,7 @@ public class EvolutionRunner {
     }
 
     private static File getFileFromResource(final String fileName) throws URISyntaxException {
-        final ClassLoader classLoader = EvolutionRunner.class.getClassLoader();
+        final ClassLoader classLoader = Main.class.getClassLoader();
         final URL resource = classLoader.getResource(fileName);
         if (resource == null) {
             throw new IllegalArgumentException("file not found! " + fileName);
