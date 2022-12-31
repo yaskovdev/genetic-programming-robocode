@@ -1,16 +1,18 @@
 package org.example;
 
 import org.spiderland.Psh.GA;
-import org.spiderland.Psh.Params;
 
 import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import static org.spiderland.Psh.GA.gaWithParameters;
+import static org.spiderland.Psh.Params.readFromFile;
+
 public class Main {
 
     public static void main(final String[] args) throws Exception {
-        final GA ga = GA.gaWithParameters(Params.readFromFile(getFileFromResource("RobocodeRobotEvolution.pushgp")));
+        final GA ga = gaWithParameters(readFromFile(getFileFromResource("RobocodeRobotEvolution.pushgp")));
         ga.run();
     }
 
