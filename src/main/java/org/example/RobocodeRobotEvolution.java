@@ -28,22 +28,22 @@ public class RobocodeRobotEvolution extends PushGP {
     }
 
     @Override
-    protected void InitFromParameters() throws Exception {
-        super.InitFromParameters();
-        _testCases = IntStream.range(0, NUMBER_OF_BATTLES_PER_TEST)
-                .mapToObj(i -> new GATestCase(i, 0))
-                .toList();
+    protected void initFromParameters() throws Exception {
+        super.initFromParameters();
+        testCases = IntStream.range(0, NUMBER_OF_BATTLES_PER_TEST)
+            .mapToObj(i -> new GATestCase(i, 0))
+            .toList();
     }
 
     @Override
-    protected void InitInterpreter(final Interpreter interpreter) {
+    protected void initInterpreter(final Interpreter interpreter) {
         Stream.of("robot.ahead", "robot.back", "robot.turnleft", "robot.turnright", "robot.turngunleft", "robot.turngunright", "robot.turnradarleft", "robot.turnradarright", "robot.fire")
-                .map(it -> new DummyUnaryInstruction(it, steps))
-                .forEach(it -> interpreter.AddInstruction(it.getName(), it));
+            .map(it -> new DummyUnaryInstruction(it, steps))
+            .forEach(it -> interpreter.addInstruction(it.getName(), it));
     }
 
     @Override
-    public float EvaluateTestCase(final GAIndividual individual, final Object input, final Object output) {
+    public float evaluateTestCase(final GAIndividual individual, final Object input, final Object output) {
         steps.set(0);
         final PushGPIndividual robot = (PushGPIndividual) individual;
         final Program program = robot._program;
@@ -53,8 +53,8 @@ public class RobocodeRobotEvolution extends PushGP {
 
         final int diff = MAX_POSSIBLE_DIFFERENCE - (results.myResults().getScore() - results.enemyResults().getScore() + MAX_SCORE);
         if (diff == MAX_POSSIBLE_DIFFERENCE) {
-            _interpreter.clearStacks();
-            _interpreter.Execute(program, _executionLimit);
+            interpreter.clearStacks();
+            interpreter.execute(program, executionLimit);
             return diff + (steps.get() == 0 ? PENALTY_FOR_NOT_MOVING : 0);
         } else {
             return diff;
@@ -65,7 +65,7 @@ public class RobocodeRobotEvolution extends PushGP {
      * Let us optimize the worst battle. The method assumes that the list of the errors is not empty and the errors are all non-negative.
      */
     @Override
-    protected float AbsoluteAverageOfErrors(final ArrayList<Float> errors) {
+    protected float absoluteAverageOfErrors(final ArrayList<Float> errors) {
         return Collections.max(errors);
     }
 }

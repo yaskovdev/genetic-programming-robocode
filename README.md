@@ -18,6 +18,8 @@ The [Push](http://pushlanguage.org/) program that the blue robot is using is qui
 
 ## How To Run Locally
 
+Create `ROBOCODE_HOME` environment variable set to, e.g., `c:\robocode`.
+
 ```
 -Xmx512M -Djava.security.manager=allow -XX:+IgnoreUnrecognizedVMOptions "--add-opens=java.base/sun.net.www.protocol.jar=ALL-UNNAMED" "--add-opens=java.base/java.lang.reflect=ALL-UNNAMED" "--add-opens=java.desktop/javax.swing.text=ALL-UNNAMED" "--add-opens=java.desktop/sun.awt=ALL-UNNAMED"
 ```

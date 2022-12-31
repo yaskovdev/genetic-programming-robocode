@@ -18,7 +18,8 @@ public class BattleRunner implements Closeable {
     public BattleRunner() {
         allowRobotsReadExternalFiles();
         RobocodeEngine.setLogMessagesEnabled(false);
-        final RobocodeEngine engine = new RobocodeEngine(new File("/Users/yaskovdev/robocode"));
+        final String robocodeHome = System.getenv("ROBOCODE_HOME");
+        final RobocodeEngine engine = new RobocodeEngine(new File(robocodeHome));
         engine.addBattleListener(new BattleObserver(this::setScores));
         engine.setVisible(false);
         this.engine = engine;
@@ -32,7 +33,7 @@ public class BattleRunner implements Closeable {
     public Results runBattle() {
         final int numberOfRounds = 1;
         final BattlefieldSpecification battlefield = new BattlefieldSpecification(800, 600);
-        final RobotSpecification[] selectedRobots = engine.getLocalRepository("org.example.PushRobot,sample.Tracker");
+        final RobotSpecification[] selectedRobots = engine.getLocalRepository("org.example.PushRobot,sample.Crazy");
         final BattleSpecification battleSpec = new BattleSpecification(numberOfRounds, battlefield, selectedRobots);
         engine.runBattle(battleSpec, true);
         final BattleResults myResults = x.getTeamLeaderName().contains("org.example.PushRobot") ? x : y;
